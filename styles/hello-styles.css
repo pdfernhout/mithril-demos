@@ -1,0 +1,8 @@
+.special-text {
+	font-weight: bold;
+}
+.comment {
+	border-style: solid;
+	padding: 10px;
+	margin: 10px;
+}
