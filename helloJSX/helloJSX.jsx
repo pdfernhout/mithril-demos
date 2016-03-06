@@ -1,5 +1,9 @@
+// Using CDN and script tag instead of require to avoid having to pull lots of Babel modules into project for one demo
+// For an example of using JSX with Maquette via a build process, see: https://github.com/AFASSoftware/maquette-typescript-jsx-starter
 var h = maquette.h;
 var projector = maquette.createProjector({});
+// Kludge for inability to configure "transform-react-jsx" plugin with option {"pragma": "h"} when using Babel browser transformation from CDN
+var React = { createElement: h };
 function renderMaquette() {
     return <div id="hello-demo">
 		<div>Hello, world!</div>
@@ -20,6 +24,4 @@ function renderMaquette() {
 		</div>
 	</div>;
 }
-document.addEventListener('DOMContentLoaded', function () {
-    projector.append(document.body, renderMaquette);
-});
+projector.append(document.body, renderMaquette);
