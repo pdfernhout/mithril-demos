@@ -1,0 +1,21 @@
+{
+  "name": "dojo2-maquette-demos",
+  "version": "0.0.1",
+  "description": "Demos of using Maquette together with Dojo2",
+  "homepage": "https://github.com/pdfernhout",
+  "bugs": {
+    "url": "https://github.com/pdfernhout/dojo2-maquette-demos/issues"
+  },
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pdfernhout/dojo2-maquette-demos.git"
+  },
+  "devDependencies": {
+    "tslint": "3.5.0",
+    "typescript": "1.8.2"
+  },
+  "dependencies": {
+    "maquette": "^2.2.1"
+  }
+}
