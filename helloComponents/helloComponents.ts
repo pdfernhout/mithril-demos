@@ -76,7 +76,7 @@ function renderMaquette() {
 		r(comment3)
 		// It feels like perhaps Maquette should change to call any functions passed in to "h" as children 
 		// or to call renderMaquette functions of objects passed in (with "this" set to the object)
-		// although looking at more cases might sightly affect performance...
+		// although looking at more cases in the "h" function when looping over children might slightly affect performance...
 	]);
 }
 
