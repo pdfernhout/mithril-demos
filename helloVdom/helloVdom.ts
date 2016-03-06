@@ -4,6 +4,9 @@ var projector = maquette.createProjector();
 function renderMaquette() {
 	return {
 	    "vnodeSelector": "div",
+	    "properties": { 
+	    	id: "hello-demo" 
+	    },
 	    "children": [
 	        {
 	            "vnodeSelector": "div",

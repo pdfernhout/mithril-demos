@@ -1,8 +1,7 @@
 var h = maquette.h;
 var projector = maquette.createProjector();
-// HyperScript initially generated using: http://html2hscript.herokuapp.com/
 function renderMaquette() {
-    return h("div", [
+    return h("div", { id: "hello-demo" }, [
         h("div", ["Hello, world!"]),
         h("div#image-div", [
             h("img", { "src": "../media/sized-dojoToolkitLogo.png", "alt": "Dojo Toolkit Logo" })

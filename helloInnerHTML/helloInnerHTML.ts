@@ -1,4 +1,4 @@
-let newContent = `<div id="hello">
+let newContent = `<div id="hello-demo">
 	<div>Hello, world!</div>
 	<div id="image-div">
 	  <img src="../media/sized-dojoToolkitLogo.png" alt="Dojo Toolkit Logo"></img>

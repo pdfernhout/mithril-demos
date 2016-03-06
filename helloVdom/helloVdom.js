@@ -1,9 +1,11 @@
 var h = maquette.h;
 var projector = maquette.createProjector();
-// HyperScript initially generated using: http://html2hscript.herokuapp.com/
 function renderMaquette() {
     return {
         "vnodeSelector": "div",
+        "properties": {
+            id: "hello-demo"
+        },
         "children": [
             {
                 "vnodeSelector": "div",
