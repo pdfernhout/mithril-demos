@@ -2,9 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Hello using HTML</title>
+    <title>Hello using innerHTML</title>
     <link rel="stylesheet" type="text/css" href="../styles/hello-styles.css">
-    <script src="helloInnerHTML.js"></script>
+    <script src="../vendor/dojo-loader/loader.js"></script>
+	<script>
+		require.config({
+		    baseUrl: '.',
+		    paths: {
+		        maquette: '../vendor/maquette/maquette',
+				'dojo-core': '../vendor/dojo-core'
+		    }
+		});
+		require(["helloInnerHTML"], function (helloInnerHTML) {
+		});
+	</script>
   </head>
   <body>
   </body>

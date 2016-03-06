@@ -1,5 +1,7 @@
+import maquette = require("../node_modules/maquette/src/maquette");
+
 var h = maquette.h;
-var projector = maquette.createProjector();
+var projector = maquette.createProjector({});
 
 function renderMaquette() {
 	return h("div", { id: "hello-demo" }, [
@@ -35,6 +37,4 @@ function renderMaquette() {
 	]);
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  projector.append(document.body, renderMaquette);
-});
+projector.append(document.body, renderMaquette);

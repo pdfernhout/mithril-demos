@@ -1,5 +1,7 @@
+import maquette = require("../vendor/maquette/maquette");
+
 var h = maquette.h;
-var projector = maquette.createProjector();
+var projector = maquette.createProjector({});
 
 function renderMaquette() {
 	return {
@@ -180,6 +182,4 @@ function renderMaquette() {
 	}
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  projector.append(document.body, renderMaquette);
-});
+projector.append(document.body, renderMaquette);

@@ -17,6 +17,4 @@ let newContent = `<div id="hello-demo">
 	</div>
 </div>`;
 
-document.addEventListener('DOMContentLoaded', function () {
-  document.body.innerHTML = newContent;
-});
+document.body.innerHTML = newContent;
