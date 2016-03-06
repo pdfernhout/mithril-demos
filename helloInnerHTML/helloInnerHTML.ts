@@ -15,4 +15,6 @@ let newContent = `<div>Hello, world!</div>
     </blockquote>
 </div>`;
 
-document.body.innerHTML = newContent;
+document.addEventListener('DOMContentLoaded', function () {
+  document.body.innerHTML = newContent;
+});
