@@ -11,6 +11,7 @@ Intended sequence of review towards increasing levels of abstraction:
 * helloFunctions
 * helloComponents
 * helloComponentsMarkup
+* helloSpecifications
 
 TODO:
 
