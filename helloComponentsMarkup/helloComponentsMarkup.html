@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Hello using HyperScript API</title>
+    <link rel="stylesheet" type="text/css" href="../styles/hello-styles.css">
+	<script src="../vendor/dojo-loader/loader.js"></script>
+	<script>
+		require.config({
+		    baseUrl: '.',
+		    paths: {
+		        maquette: '../vendor/maquette/maquette',
+				'dojo-core': '../vendor/dojo-core'
+		    }
+		});
+		require(["helloComponentsMarkup"], function (helloComponentsMarkup) {
+		});
+	</script>
+  </head>
+  <body>
+  </body>
+</html>
