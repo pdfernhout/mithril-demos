@@ -1,4 +1,4 @@
-define(["require", "exports", "../node_modules/maquette/src/maquette"], function (require, exports, maquette) {
+define(["require", "exports", "../vendor/maquette/maquette"], function (require, exports, maquette) {
     "use strict";
     var h = maquette.h;
     var projector = maquette.createProjector({});

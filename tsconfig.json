@@ -5,6 +5,10 @@
         "rootDir": ".",
         "declaration": false,
         "removeComments": false,
-        "jsx": "preserve"
-    }
+        "jsx": "preserve",
+	"newLine": "LF"
+    },
+    "exclude": [
+      "node_modules"
+    ]
 }

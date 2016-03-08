@@ -1,5 +1,5 @@
-import maquette = require("../node_modules/maquette/src/maquette");
-import dojoString = require("../vendor/dojo-core/string");
+import maquette = require("../vendor/maquette/maquette");
+import dojoString = require("dojo-core/string");
 
 let h = maquette.h;
 let projector = maquette.createProjector({});
@@ -26,13 +26,13 @@ function convertMarkupToHyperScript(text) {
 	});
 	// TODO: This puts in a new final space
 	return newParts.map((part) => {
-		return [part, " "];	
+		return [part, " "];
 	});
 }
 
 class Text implements maquette.Component {
 	constructor (public text: string) { }
-	
+
 	renderMaquette() {
 		return h("div", [convertMarkupToHyperScript(this.text)]);
 	}
@@ -40,7 +40,7 @@ class Text implements maquette.Component {
 
 class Image implements maquette.Component {
 	constructor (public src: string, public alt: string) { }
-	
+
 	renderMaquette() {
 		return h("div#image-div", [
 			h("img", { "src": this.src, "alt": convertMarkupToHyperScript(this.alt) } )
@@ -50,10 +50,10 @@ class Image implements maquette.Component {
 
 class Comment implements maquette.Component {
 	constructor (public text: string, public quote?: string) { }
-	
+
 	renderMaquette() {
 		return h("div.comment", [
-			convertMarkupToHyperScript(this.text), 
+			convertMarkupToHyperScript(this.text),
 			this.quote ? h("blockquote", {}, convertMarkupToHyperScript(this.quote)) : [ ]
 		]);
 	}
@@ -86,7 +86,7 @@ let specifications: Array<Specification> = [
 	{
 		type: "comment",
 		text: "Aikido master Endō Seishirō shihan stated:",
-		extra: `"It is known that, when we learn or train in something, we pass through the stages of 
+		extra: `"It is known that, when we learn or train in something, we pass through the stages of
 _shu_, _ha_, and _ri_. These stages are explained as follows. In
 _shu_, we repeat the forms and discipline ourselves so that our bodies absorb the forms that our forebears created. We remain faithful to these forms with no deviation. Next, in the stage of
 _ha_, once we have disciplined ourselves to acquire the forms and movements, we make innovations. In this process the forms may be broken and discarded. Finally, in
@@ -100,11 +100,11 @@ function renderSpecification(specification: Specification): any {
 	if (specification.type === "text") return new Text(specification.text).renderMaquette();
 	if (specification.type === "image") return new Image(specification.extra, specification.text).renderMaquette();
 	if (specification.type === "comment") return new Comment(specification.text, specification.extra).renderMaquette();
-	return "ERROR";	
+	return "ERROR";
 }
 
 function renderMaquette() {
-	return h("div", { id: "hello-demo" }, 
+	return h("div", { id: "hello-demo" },
 		specifications.map((specification) => {
 			return renderSpecification(specification)
 		})

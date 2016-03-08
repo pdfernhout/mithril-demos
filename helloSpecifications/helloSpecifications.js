@@ -1,4 +1,4 @@
-define(["require", "exports", "../node_modules/maquette/src/maquette", "../vendor/dojo-core/string"], function (require, exports, maquette, dojoString) {
+define(["require", "exports", "../vendor/maquette/maquette", "dojo-core/string"], function (require, exports, maquette, dojoString) {
     "use strict";
     var h = maquette.h;
     var projector = maquette.createProjector({});
@@ -83,7 +83,7 @@ define(["require", "exports", "../node_modules/maquette/src/maquette", "../vendo
         {
             type: "comment",
             text: "Aikido master Endō Seishirō shihan stated:",
-            extra: "\"It is known that, when we learn or train in something, we pass through the stages of \n_shu_, _ha_, and _ri_. These stages are explained as follows. In\n_shu_, we repeat the forms and discipline ourselves so that our bodies absorb the forms that our forebears created. We remain faithful to these forms with no deviation. Next, in the stage of\n_ha_, once we have disciplined ourselves to acquire the forms and movements, we make innovations. In this process the forms may be broken and discarded. Finally, in\n_ri_, we completely depart from the forms, open the door to creative technique, and arrive in a place where we act in accordance with what our heart/mind desires, unhindered while not overstepping laws.\""
+            extra: "\"It is known that, when we learn or train in something, we pass through the stages of\n_shu_, _ha_, and _ri_. These stages are explained as follows. In\n_shu_, we repeat the forms and discipline ourselves so that our bodies absorb the forms that our forebears created. We remain faithful to these forms with no deviation. Next, in the stage of\n_ha_, once we have disciplined ourselves to acquire the forms and movements, we make innovations. In this process the forms may be broken and discarded. Finally, in\n_ri_, we completely depart from the forms, open the door to creative technique, and arrive in a place where we act in accordance with what our heart/mind desires, unhindered while not overstepping laws.\""
         }
     ];
     // TODO: Should store objects in the array rather than reconvert them every time

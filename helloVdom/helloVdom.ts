@@ -3,11 +3,11 @@ import maquette = require("../vendor/maquette/maquette");
 var h = maquette.h;
 var projector = maquette.createProjector({});
 
-function renderMaquette() {
+function renderMaquette(): any {
 	return {
 	    "vnodeSelector": "div",
-	    "properties": { 
-	    	id: "hello-demo" 
+	    "properties": {
+	    	id: "hello-demo"
 	    },
 	    "children": [
 	        {
