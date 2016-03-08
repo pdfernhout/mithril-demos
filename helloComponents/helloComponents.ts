@@ -36,7 +36,7 @@ let dojoImage = new Image("../media/sized-dojoToolkitLogo.png", "Dojo Toolkit Lo
 let comment1 = new Comment([
 	h("em", ["vdom"]),
 	" via Maquette is a ",
-	h("span.special-text", ["strategic"]),
+	h("span.special-text", ["plausible"]),
 	" move for Dojo2"
 ]);
 

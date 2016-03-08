@@ -77,7 +77,7 @@ let specifications: Array<Specification> = [
 	},
 	{
 		type: "comment",
-		text: "_vdom_ via Maquette is a *strategic* move for Dojo2"
+		text: "_vdom_ via Maquette is a *plausible* move for Dojo2"
 	},
 	{
 		type: "comment",

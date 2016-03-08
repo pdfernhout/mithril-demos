@@ -11,7 +11,7 @@ define(["require", "exports", "../node_modules/maquette/src/maquette"], function
             h("div.comment", [
                 h("em", ["vdom"]),
                 " via Maquette is a ",
-                h("span.special-text", ["strategic"]),
+                h("span.special-text", ["plausible"]),
                 " move for Dojo2"
             ]),
             h("div.comment", [

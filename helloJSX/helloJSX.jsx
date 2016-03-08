@@ -11,7 +11,7 @@ function renderMaquette() {
 		  <img src="../media/sized-dojoToolkitLogo.png" alt="Dojo Toolkit Logo"></img>
 		</div>
 		<div class="comment">
-		  <em>vdom</em> via Maquette is a <span class="special-text">strategic</span> move for Dojo2
+		  <em>vdom</em> via Maquette is a <span class="special-text">plausible</span> move for Dojo2
 		</div>
 		<div class="comment">
 		  <em>Shuhari</em> (or <span class="special-text">守破離</span> in Japanese) <a href="https://en.wikipedia.org/wiki/Shuhari">roughly</a> translates to "first learn, then detach, and finally transcend."

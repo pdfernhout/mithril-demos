@@ -12,7 +12,7 @@ function renderMaquette() {
 		h("div.comment", [
 			h("em", ["vdom"]),
 			" via Maquette is a ",
-			h("span.special-text", ["strategic"]),
+			h("span.special-text", ["plausible"]),
 			" move for Dojo2"
 		]), 
 		h("div.comment", [

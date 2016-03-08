@@ -45,7 +45,7 @@ function renderMaquette() {
 	                },
 	                {
 	                    "vnodeSelector": "span.special-text",
-	                    "text": "strategic",
+	                    "text": "plausible",
 	                    "domNode": null
 	                },
 	                {

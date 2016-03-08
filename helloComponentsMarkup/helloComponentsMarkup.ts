@@ -64,7 +64,7 @@ let greetingText = new Text("Hello, world!");
 
 let dojoImage = new Image("../media/sized-dojoToolkitLogo.png", "Dojo Toolkit Logo");
 
-let comment1 = new Comment("_vdom_ via Maquette is a *strategic* move for Dojo2");
+let comment1 = new Comment("_vdom_ via Maquette is a *plausible* move for Dojo2");
 
 let comment2 = new Comment("_Shuhari_ (or *守破離* in Japanese) roughly|https://en.wikipedia.org/wiki/Shuhari translates to \"first learn, then detach, and finally transcend.\"");
 

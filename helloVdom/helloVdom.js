@@ -44,7 +44,7 @@ define(["require", "exports", "../vendor/maquette/maquette"], function (require,
                         },
                         {
                             "vnodeSelector": "span.special-text",
-                            "text": "strategic",
+                            "text": "plausible",
                             "domNode": null
                         },
                         {
