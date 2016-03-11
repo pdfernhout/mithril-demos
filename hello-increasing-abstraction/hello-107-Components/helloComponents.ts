@@ -1,4 +1,4 @@
-import maquette = require("../vendor/maquette/maquette");
+import maquette = require("../../vendor/maquette/maquette");
 
 let h = maquette.h;
 let projector = maquette.createProjector({});

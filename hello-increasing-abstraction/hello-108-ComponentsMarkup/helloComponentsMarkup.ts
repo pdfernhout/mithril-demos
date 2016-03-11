@@ -1,4 +1,4 @@
-import maquette = require("../vendor/maquette/maquette");
+import maquette = require("../../vendor/maquette/maquette");
 import dojoString = require("dojo-core/string");
 
 let h = maquette.h;

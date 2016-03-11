@@ -1,7 +1,7 @@
 // Using CDN and script tag instead of require to avoid having to pull lots of Babel modules into project for one demo
 // For an example of using JSX with Maquette via a build process, see: https://github.com/AFASSoftware/maquette-typescript-jsx-starter
 
-// import maquette = require("../vendor/maquette/maquette");
+// import maquette = require("../../vendor/maquette/maquette");
 declare var maquette: any;
 
 var h = maquette.h;
