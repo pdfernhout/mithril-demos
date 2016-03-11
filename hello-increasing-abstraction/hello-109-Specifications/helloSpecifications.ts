@@ -38,7 +38,7 @@ class Text implements maquette.Component {
 }
 
 class Image implements maquette.Component {
-	constructor (public src: string, public alt: string) { }
+	constructor (public alt: string, public src: string) { }
 
 	renderMaquette() {
 		return h("div#image-div", [
@@ -93,19 +93,29 @@ _ri_, we completely depart from the forms, open the door to creative technique, 
 	}
 ];
 
-// TODO: Should store objects in the array rather than reconvert them every time
-
-function renderSpecification(specification: Specification): any {
-	if (specification.type === "text") return new Text(specification.text).renderMaquette();
-	if (specification.type === "image") return new Image(specification.extra, specification.text).renderMaquette();
-	if (specification.type === "comment") return new Comment(specification.text, specification.extra).renderMaquette();
-	return "ERROR";
+let specificationToComponentMap = {
+	"text": Text,
+	"image": Image,
+	"comment": Comment
 }
+
+function makeComponentForSpecification(specification) {
+	let theClass = specificationToComponentMap[specification.type];
+	return new theClass(specification.text, specification.extra);
+}
+
+var displayItems: maquette.Component[] = [];
+
+specifications.forEach((specification) => {
+	displayItems.push(makeComponentForSpecification(specification));
+});
+
+console.log("displayItems", displayItems);
 
 function renderMaquette() {
 	return h("div", { id: "hello-demo" },
-		specifications.map((specification) => {
-			return renderSpecification(specification)
+		displayItems.map((displayItem) => {
+			return displayItem.renderMaquette();
 		})
 	);
 }

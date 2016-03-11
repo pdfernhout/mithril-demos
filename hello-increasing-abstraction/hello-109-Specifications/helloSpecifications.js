@@ -36,9 +36,9 @@ define(["require", "exports", "../../vendor/maquette/maquette", "dojo-core/strin
         return Text;
     }());
     var Image = (function () {
-        function Image(src, alt) {
-            this.src = src;
+        function Image(alt, src) {
             this.alt = alt;
+            this.src = src;
         }
         Image.prototype.renderMaquette = function () {
             return h("div#image-div", [
@@ -84,19 +84,23 @@ define(["require", "exports", "../../vendor/maquette/maquette", "dojo-core/strin
             extra: "\"It is known that, when we learn or train in something, we pass through the stages of\n_shu_, _ha_, and _ri_. These stages are explained as follows. In\n_shu_, we repeat the forms and discipline ourselves so that our bodies absorb the forms that our forebears created. We remain faithful to these forms with no deviation. Next, in the stage of\n_ha_, once we have disciplined ourselves to acquire the forms and movements, we make innovations. In this process the forms may be broken and discarded. Finally, in\n_ri_, we completely depart from the forms, open the door to creative technique, and arrive in a place where we act in accordance with what our heart/mind desires, unhindered while not overstepping laws.\""
         }
     ];
-    // TODO: Should store objects in the array rather than reconvert them every time
-    function renderSpecification(specification) {
-        if (specification.type === "text")
-            return new Text(specification.text).renderMaquette();
-        if (specification.type === "image")
-            return new Image(specification.extra, specification.text).renderMaquette();
-        if (specification.type === "comment")
-            return new Comment(specification.text, specification.extra).renderMaquette();
-        return "ERROR";
+    var specificationToComponentMap = {
+        "text": Text,
+        "image": Image,
+        "comment": Comment
+    };
+    function makeComponentForSpecification(specification) {
+        var theClass = specificationToComponentMap[specification.type];
+        return new theClass(specification.text, specification.extra);
     }
+    var displayItems = [];
+    specifications.forEach(function (specification) {
+        displayItems.push(makeComponentForSpecification(specification));
+    });
+    console.log("displayItems", displayItems);
     function renderMaquette() {
-        return h("div", { id: "hello-demo" }, specifications.map(function (specification) {
-            return renderSpecification(specification);
+        return h("div", { id: "hello-demo" }, displayItems.map(function (displayItem) {
+            return displayItem.renderMaquette();
         }));
     }
     projector.append(document.body, renderMaquette);
