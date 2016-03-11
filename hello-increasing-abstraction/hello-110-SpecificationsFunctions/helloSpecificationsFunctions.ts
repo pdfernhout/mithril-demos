@@ -15,7 +15,7 @@ function convertMarkupToHyperScript(text) {
 		return text.substring(1, text.length - 1);
 	}
 
-	let parts = text.split(/([\s,.;?!])/g);
+	let parts = text.split(/(\s+|[,.;?!](?=\s))/g);
 
 	let newParts = parts.map((part: string): any => {
 		if (dojoString.startsWith(part, "_")) return h("em", {}, removeMarkup(part));
