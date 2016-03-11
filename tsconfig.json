@@ -1,14 +1,14 @@
 {
-    "compilerOptions": {
-        "module": "amd",
-        "target": "ES5",
-        "rootDir": ".",
-        "declaration": false,
-        "removeComments": false,
-        "jsx": "preserve",
-	"newLine": "LF"
-    },
-    "exclude": [
-      "node_modules"
-    ]
+	"compilerOptions": {
+		"module": "amd",
+		"target": "ES5",
+		"rootDir": ".",
+		"declaration": false,
+		"removeComments": false,
+		"jsx": "preserve",
+		"newLine": "LF"
+	},
+	"exclude": [
+	 	"node_modules"
+	]
 }
