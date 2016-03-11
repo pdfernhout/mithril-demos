@@ -2,17 +2,17 @@ define(["require", "exports", "../../vendor/maquette/maquette", "dojo-core/strin
     "use strict";
     var h = maquette.h;
     var projector = maquette.createProjector({});
-    // Brittle function -- just for demonstration
-    function removeMarkup(text) {
-        if (text.charAt(0) !== text.charAt(text.length - 1)) {
-            return text.substring(1, text.length - 2) + text.charAt(text.length - 1);
-        }
-        return text.substring(1, text.length - 1);
-    }
-    // Inefficient special case function -- just for demonstration
+    // Convert marked-up words like _this and *that* to HyperScript calls.
+    // Convert words with a pipe (|) in them into hyperlinks.
+    // For demonstration putposes only -- this is not a robust approach to markup.
     function convertMarkupToHyperScript(text) {
-        var parts = text.split(/\s/g);
-        console.log("parts", parts);
+        function removeMarkup(text) {
+            if (text.charAt(0) !== text.charAt(text.length - 1)) {
+                throw new Error("Unmatched markup for: " + text);
+            }
+            return text.substring(1, text.length - 1);
+        }
+        var parts = text.split(/([\s,.;?!])/g);
         var newParts = parts.map(function (part) {
             if (dojoString.startsWith(part, "_"))
                 return h("em", {}, removeMarkup(part));
@@ -24,10 +24,7 @@ define(["require", "exports", "../../vendor/maquette/maquette", "dojo-core/strin
             }
             return part;
         });
-        // TODO: Put in a new final space
-        return newParts.map(function (part) {
-            return [part, " "];
-        });
+        return newParts;
     }
     var Text = (function () {
         function Text(text) {

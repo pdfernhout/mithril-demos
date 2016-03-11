@@ -4,17 +4,19 @@ import dojoString = require("dojo-core/string");
 let h = maquette.h;
 let projector = maquette.createProjector({});
 
-// Brittle function -- just for demonstration
-function removeMarkup(text: string) {
-	if (text.charAt(0) !== text.charAt(text.length - 1)) {
-		return text.substring(1, text.length - 2) + text.charAt(text.length - 1);
-	}
-	return text.substring(1, text.length - 1);
-}
-
-// Inefficient special case function -- just for demonstration
+// Convert marked-up words like _this and *that* to HyperScript calls.
+// Convert words with a pipe (|) in them into hyperlinks.
+// For demonstration putposes only -- this is not a robust approach to markup.
 function convertMarkupToHyperScript(text) {
-	let parts = text.split(/\s/g);
+	function removeMarkup(text: string) {
+		if (text.charAt(0) !== text.charAt(text.length - 1)) {
+			throw new Error("Unmatched markup for: " + text);
+		}
+		return text.substring(1, text.length - 1);
+	}
+
+	let parts = text.split(/([\s,.;?!])/g);
+
 	let newParts = parts.map((part: string): any => {
 		if (dojoString.startsWith(part, "_")) return h("em", {}, removeMarkup(part));
 		if (dojoString.startsWith(part, "*")) return h("span.special-text", {}, removeMarkup(part));
@@ -24,10 +26,7 @@ function convertMarkupToHyperScript(text) {
 		}
 		return part;
 	});
-	// TODO: This puts in a new final space
-	return newParts.map((part) => {
-		return [part, " "];
-	});
+	return newParts;
 }
 
 class Text implements maquette.Component {
