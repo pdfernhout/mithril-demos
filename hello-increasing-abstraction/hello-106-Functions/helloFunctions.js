@@ -1,5 +1,4 @@
 define(["require", "exports", "../../vendor/maquette/maquette"], function (require, exports, maquette) {
-    "use strict";
     var h = maquette.h;
     var projector = maquette.createProjector({});
     function textDiv(text) {

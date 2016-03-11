@@ -1,5 +1,4 @@
 define(["require", "exports", "../../vendor/maquette/maquette"], function (require, exports, maquette) {
-    "use strict";
     var h = maquette.h;
     var projector = maquette.createProjector({});
     var Text = (function () {
@@ -10,7 +9,7 @@ define(["require", "exports", "../../vendor/maquette/maquette"], function (requi
             return h("div", [this.text]);
         };
         return Text;
-    }());
+    })();
     var Image = (function () {
         function Image(src, alt) {
             this.src = src;
@@ -22,7 +21,7 @@ define(["require", "exports", "../../vendor/maquette/maquette"], function (requi
             ]);
         };
         return Image;
-    }());
+    })();
     var Comment = (function () {
         function Comment(parts) {
             this.parts = parts;
@@ -31,7 +30,7 @@ define(["require", "exports", "../../vendor/maquette/maquette"], function (requi
             return h("div.comment", this.parts);
         };
         return Comment;
-    }());
+    })();
     var greetingText = new Text("Hello, world!");
     var dojoImage = new Image("../media/sized-dojoToolkitLogo.png", "Dojo Toolkit Logo");
     var comment1 = new Comment([

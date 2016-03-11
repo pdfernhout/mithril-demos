@@ -1,5 +1,4 @@
 define(["require", "exports", "../../vendor/maquette/maquette", "dojo-core/string"], function (require, exports, maquette, dojoString) {
-    "use strict";
     var h = maquette.h;
     var projector = maquette.createProjector({});
     // Convert marked-up words like _this and *that* to HyperScript calls.
@@ -12,7 +11,7 @@ define(["require", "exports", "../../vendor/maquette/maquette", "dojo-core/strin
             }
             return text.substring(1, text.length - 1);
         }
-        var parts = text.split(/([\s,.;?!])/g);
+        var parts = text.split(/(\s+|[,.;?!](?=\s))/g);
         var newParts = parts.map(function (part) {
             if (dojoString.startsWith(part, "_"))
                 return h("em", {}, removeMarkup(part));
@@ -34,7 +33,7 @@ define(["require", "exports", "../../vendor/maquette/maquette", "dojo-core/strin
             return h("div", [convertMarkupToHyperScript(this.text)]);
         };
         return Text;
-    }());
+    })();
     var Image = (function () {
         function Image(src, alt) {
             this.src = src;
@@ -46,7 +45,7 @@ define(["require", "exports", "../../vendor/maquette/maquette", "dojo-core/strin
             ]);
         };
         return Image;
-    }());
+    })();
     var Comment = (function () {
         function Comment(text, quote) {
             this.text = text;
@@ -59,7 +58,7 @@ define(["require", "exports", "../../vendor/maquette/maquette", "dojo-core/strin
             ]);
         };
         return Comment;
-    }());
+    })();
     var greetingText = new Text("Hello, world!");
     var dojoImage = new Image("../media/sized-dojoToolkitLogo.png", "Dojo Toolkit Logo");
     var comment1 = new Comment("_vdom_ via Maquette is a *plausible* move for Dojo2");
