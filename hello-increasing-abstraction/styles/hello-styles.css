@@ -6,3 +6,22 @@
 	padding: 10px;
 	margin: 10px;
 }
+
+/* For editing */
+
+.editor {
+	border-color: #00CC22;
+	border-style: solid;
+	padding: 10px;
+	margin: 10px;
+}
+
+input {
+    box-sizing : border-box;
+	width: 100%;
+}
+
+textarea {
+	box-sizing: border-box;
+	width: 100%;
+}
