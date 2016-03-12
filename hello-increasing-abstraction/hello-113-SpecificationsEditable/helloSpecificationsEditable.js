@@ -71,7 +71,7 @@ define(["require", "exports", "../../vendor/maquette/maquette", "dojo-core/strin
         return h("div.editor", { key: specification }, [
             "Type: ", h("input", { value: specification.type, onchange: specification.setType }), h("br"),
             "Text: ", h("input", { value: specification.text, onchange: specification.setText }), h("br"),
-            "Extra: ", h("textarea", { value: specification.extra, onchange: specification.setExtra || "" }), h("br"),
+            "Extra: ", h("textarea", { value: specification.extra || "", onchange: specification.setExtra }), h("br"),
             h("button", { onclick: specification.acceptChanges }, "Done")
         ]);
     }
