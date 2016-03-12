@@ -3,7 +3,7 @@ define(["require", "exports", "../../vendor/maquette/maquette", "dojo-core/strin
     var h = maquette.h;
     var projector = maquette.createProjector({});
     var specifications = null;
-    // Convert marked-up words like _this and *that* to HyperScript calls.
+    // Convert marked-up words like _this_ and *that* to HyperScript calls.
     // Convert words with a pipe (|) in them into hyperlinks.
     // For demonstration putposes only -- this is not a robust approach to markup.
     function convertMarkupToHyperScript(text) {

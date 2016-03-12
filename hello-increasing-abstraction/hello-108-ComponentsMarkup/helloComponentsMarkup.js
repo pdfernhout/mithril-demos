@@ -1,7 +1,8 @@
 define(["require", "exports", "../../vendor/maquette/maquette", "dojo-core/string"], function (require, exports, maquette, dojoString) {
+    "use strict";
     var h = maquette.h;
     var projector = maquette.createProjector({});
-    // Convert marked-up words like _this and *that* to HyperScript calls.
+    // Convert marked-up words like _this_ and *that* to HyperScript calls.
     // Convert words with a pipe (|) in them into hyperlinks.
     // For demonstration putposes only -- this is not a robust approach to markup.
     function convertMarkupToHyperScript(text) {
@@ -33,7 +34,7 @@ define(["require", "exports", "../../vendor/maquette/maquette", "dojo-core/strin
             return h("div", [convertMarkupToHyperScript(this.text)]);
         };
         return Text;
-    })();
+    }());
     var Image = (function () {
         function Image(src, alt) {
             this.src = src;
@@ -45,7 +46,7 @@ define(["require", "exports", "../../vendor/maquette/maquette", "dojo-core/strin
             ]);
         };
         return Image;
-    })();
+    }());
     var Comment = (function () {
         function Comment(text, quote) {
             this.text = text;
@@ -58,7 +59,7 @@ define(["require", "exports", "../../vendor/maquette/maquette", "dojo-core/strin
             ]);
         };
         return Comment;
-    })();
+    }());
     var greetingText = new Text("Hello, world!");
     var dojoImage = new Image("../media/sized-dojoToolkitLogo.png", "Dojo Toolkit Logo");
     var comment1 = new Comment("_vdom_ via Maquette is a *plausible* move for Dojo2");
