@@ -277,6 +277,12 @@ export interface VNodeProperties {
   // From HTMLImageElement
   alt?: string;
   srcset?: string;
+  /**
+   * Puts a non-interactive piece of html inside the DOM node.
+   *
+   * Note: if you use innerHTML, maquette cannot protect you from XSS vulnerabilities and you must make sure that the innerHTML value is safe.
+   */
+  innerHTML?: string;
 
   /**
    * Everything that is not explicitly listed (properties and attributes that are either uncommon or custom).
@@ -447,9 +453,9 @@ let setProperties = function(domNode: Node, properties: VNodeProperties, project
               };
             } ());
           }
+          (domNode as any)[propName] = propValue;
         }
-        (domNode as any)[propName] = propValue;
-      } else if (type === 'string' && propName !== 'value') {
+      } else if (type === 'string' && propName !== 'value' && propName !== 'innerHTML') {
         (domNode as Element).setAttribute(propName, propValue);
       } else {
         (domNode as any)[propName] = propValue;
@@ -528,7 +534,7 @@ let updateProperties = function(domNode: Node, previousProperties: VNodeProperti
           throw new Error('Functions may not be updated on subsequent renders (property: ' + propName +
             '). Hint: declare event handler functions outside the render() function.');
         }
-        if (type === 'string') {
+        if (type === 'string' && propName !== 'innerHTML') {
           (domNode as Element).setAttribute(propName, propValue);
         } else {
           if ((domNode as any)[propName] !== propValue) { // Comparison is here for side-effects in Edge with scrollLeft and scrollTop
@@ -1082,13 +1088,15 @@ export let createMapping = <Source, Target>(
 export let createProjector = function(projectionOptions: ProjectionOptions): Projector {
   let projector: Projector;
   projectionOptions = applyDefaultProjectionOptions(projectionOptions);
-  projectionOptions.eventHandlerInterceptor = function(propertyName: string, functionPropertyArgument: Function) {
-    return function() {
-      // intercept function calls (event handlers) to do a render afterwards.
-      projector.scheduleRender();
-      return functionPropertyArgument.apply(this, arguments);
+  if (projectionOptions.eventHandlerInterceptor === undefined) {
+    projectionOptions.eventHandlerInterceptor = function(propertyName: string, functionPropertyArgument: Function) {
+      return function() {
+        // intercept function calls (event handlers) to do a render afterwards.
+        projector.scheduleRender();
+        return functionPropertyArgument.apply(this, arguments);
+      };
     };
-  };
+  }
   let renderCompleted = true;
   let scheduled: number;
   let stopped = false;

@@ -151,10 +151,10 @@ define(["require", "exports"], function (require, exports) {
                                 };
                             }());
                         }
+                        domNode[propName] = propValue;
                     }
-                    domNode[propName] = propValue;
                 }
-                else if (type === 'string' && propName !== 'value') {
+                else if (type === 'string' && propName !== 'value' && propName !== 'innerHTML') {
                     domNode.setAttribute(propName, propValue);
                 }
                 else {
@@ -239,7 +239,7 @@ define(["require", "exports"], function (require, exports) {
                         throw new Error('Functions may not be updated on subsequent renders (property: ' + propName +
                             '). Hint: declare event handler functions outside the render() function.');
                     }
-                    if (type === 'string') {
+                    if (type === 'string' && propName !== 'innerHTML') {
                         domNode.setAttribute(propName, propValue);
                     }
                     else {
@@ -731,13 +731,15 @@ define(["require", "exports"], function (require, exports) {
     exports.createProjector = function (projectionOptions) {
         var projector;
         projectionOptions = applyDefaultProjectionOptions(projectionOptions);
-        projectionOptions.eventHandlerInterceptor = function (propertyName, functionPropertyArgument) {
-            return function () {
-                // intercept function calls (event handlers) to do a render afterwards.
-                projector.scheduleRender();
-                return functionPropertyArgument.apply(this, arguments);
+        if (projectionOptions.eventHandlerInterceptor === undefined) {
+            projectionOptions.eventHandlerInterceptor = function (propertyName, functionPropertyArgument) {
+                return function () {
+                    // intercept function calls (event handlers) to do a render afterwards.
+                    projector.scheduleRender();
+                    return functionPropertyArgument.apply(this, arguments);
+                };
             };
-        };
+        }
         var renderCompleted = true;
         var scheduled;
         var stopped = false;
