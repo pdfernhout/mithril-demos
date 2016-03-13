@@ -1,5 +1,4 @@
 define(["require", "exports", "../../vendor/maquette/maquette", "dojo-core/string", "dojo-core/request"], function (require, exports, maquette, dojoString, request_1) {
-    "use strict";
     var h = maquette.h;
     var projector = maquette.createProjector({});
     var specifications = null;
