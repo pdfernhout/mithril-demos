@@ -1,7 +1,6 @@
 import maquette = require("../../vendor/maquette/maquette");
 import dojoString = require("dojo-core/string");
 import request from "dojo-core/request";
-import WeakMap from 'dojo-core/WeakMap'
 
 let h = maquette.h;
 
