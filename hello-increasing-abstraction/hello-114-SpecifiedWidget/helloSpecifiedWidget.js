@@ -1,6 +1,6 @@
 define(["require", "exports", "../../vendor/maquette/maquette", "dojo-core/string", "dojo-core/request"], function (require, exports, maquette, dojoString, request_1) {
+    "use strict";
     var h = maquette.h;
-    var projectorContainer = { projector: null };
     var eventHandlerInterceptor = function (propertyName, functionPropertyArgument, domNode, properties) {
         return function () {
             // intercept function calls (event handlers) to do a render afterwards.
@@ -10,12 +10,11 @@ define(["require", "exports", "../../vendor/maquette/maquette", "dojo-core/strin
         };
     };
     var projector = maquette.createProjector({ eventHandlerInterceptor: eventHandlerInterceptor });
-    projectorContainer.projector = projector;
     var Specification = (function () {
         function Specification() {
         }
         return Specification;
-    })();
+    }());
     var specifications = null;
     var widgets = null;
     // Maquette requires always setting callbacks to the same function
@@ -64,7 +63,7 @@ define(["require", "exports", "../../vendor/maquette/maquette", "dojo-core/strin
             ]);
         };
         return SpecifiedWidget;
-    })();
+    }());
     // Convert marked-up words like _this_ and *that* to HyperScript calls.
     // Convert words with a pipe (|) in them into hyperlinks.
     // For demonstration putposes only -- this is not a robust approach to markup.

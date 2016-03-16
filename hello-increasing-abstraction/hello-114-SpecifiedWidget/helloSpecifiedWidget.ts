@@ -4,8 +4,6 @@ import request from "dojo-core/request";
 
 let h = maquette.h;
 
-let projectorContainer = { projector: null };
-
 let eventHandlerInterceptor = function(propertyName: string, functionPropertyArgument: Function, domNode: Node, properties: maquette.VNodeProperties) {
   return function() {
 	// intercept function calls (event handlers) to do a render afterwards.
@@ -16,8 +14,6 @@ let eventHandlerInterceptor = function(propertyName: string, functionPropertyArg
 };
 
 let projector = maquette.createProjector({ eventHandlerInterceptor: eventHandlerInterceptor });
-
-projectorContainer.projector = projector;
 
 class Specification {
 	type: string;
