@@ -1,14 +1,6 @@
 define(["require", "exports", "../../vendor/maquette/maquette", "dojo-core/string", "dojo-core/request"], function (require, exports, maquette, dojoString, request_1) {
     var h = maquette.h;
-    var eventHandlerInterceptor = function (propertyName, functionPropertyArgument, domNode, properties) {
-        return function () {
-            // intercept function calls (event handlers) to do a render afterwards.
-            projector.scheduleRender();
-            // TODO: bind is not defined on VNodeProperties
-            return functionPropertyArgument.apply(properties["bind"], arguments);
-        };
-    };
-    var projector = maquette.createProjector({ eventHandlerInterceptor: eventHandlerInterceptor });
+    var projector = maquette.createProjector({});
     var Specification = (function () {
         function Specification() {
         }
