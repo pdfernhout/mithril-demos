@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Currency Converter Demo</title>
-    <style>
-        span.label {
-            display: inline-block;
-            text-align: right;
-            min-width: 10em;
-            margin-right: 0.5em;
-        }
-        
-        #currency-converter {
-            border-style: solid;
-            border-color: green;  
-        }
-        
-        #currency-converter.precisionError {
-            border-color: yellow;   
-        }
-        
-        #currency-converter.currencyError {
-            border-color: red;   
-        }
-    </style>
-	<script src="../vendor/dojo-loader/loader.js"></script>
-	<script>
-		require.config({
-		    baseUrl: '.',
-		    paths: {
-		        maquette: '../vendor/maquette/maquette',
-				'dojo-core': '../vendor/dojo-core'
-		    }
-		});
-		require(["currencyConverterFew"], function (currencyConverterFew) {
-		});
-	</script>
-  </head>
-  <body>
-  </body>
+	<head>
+		<meta charset="utf-8">
+		<title>Currency Converter Demo</title>
+		<style>
+			span.label {
+				display: inline-block;
+				text-align: right;
+				min-width: 10em;
+				margin-right: 0.5em;
+			}
+			
+			#currency-converter {
+				border-style: solid;
+				border-color: green;  
+			}
+			
+			#currency-converter.precisionError {
+				border-color: yellow;   
+			}
+			
+			#currency-converter.currencyError {
+				border-color: red;   
+			}
+		</style>
+		<script src="../vendor/dojo-loader/loader.js"></script>
+		<script>
+			require.config({
+				baseUrl: '.',
+				paths: {
+					maquette: '../vendor/maquette/maquette',
+					'dojo-core': '../vendor/dojo-core'
+				}
+			});
+			require(["currencyConverterFew"], function (currencyConverterFew) {
+			});
+		</script>
+	</head>
+	<body>
+	</body>
 </html>

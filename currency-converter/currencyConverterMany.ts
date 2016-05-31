@@ -10,83 +10,83 @@ const allRates = { };
 const rateValueSetters = { };
 
 const model = {
-    amount: '100.00',
-    currency: 'USD',
-    precision: '2',
-    currencyError: false,
-    precisionError: false
+	amount: '100.00',
+	currency: 'USD',
+	precision: '2',
+	currencyError: false,
+	precisionError: false
 }
 
 function loadAllRates() {
-    for (let line of ratesAsCSV().split('\n')) {
-        const parts = line.split(',');
-        const currencyRate = {
-            name: parts[0],
-            symbol: parts[1],
-            dollarsPerUnit: parseFloat(parts[2]),
-            unitsPerDollar: parseFloat(parts[3])
-        }
-        allRates[currencyRate.symbol] = currencyRate;
-        rateValueSetters[currencyRate.symbol] = setCurrencyValue.bind(null, currencyRate.symbol);
-    }
+	for (let line of ratesAsCSV().split('\n')) {
+		const parts = line.split(',');
+		const currencyRate = {
+			name: parts[0],
+			symbol: parts[1],
+			dollarsPerUnit: parseFloat(parts[2]),
+			unitsPerDollar: parseFloat(parts[3])
+		}
+		allRates[currencyRate.symbol] = currencyRate;
+		rateValueSetters[currencyRate.symbol] = setCurrencyValue.bind(null, currencyRate.symbol);
+	}
 }
 
 function setPrecision(event) {
-    let precision = event.target.value;
-    model.precision = '' + precision;
-    if (getPrecision() !== parseInt(model.precision)) {
-        model.precisionError = true;
-    } else {
-        model.precisionError = false;
-    }
+	let precision = event.target.value;
+	model.precision = '' + precision;
+	if (getPrecision() !== parseInt(model.precision)) {
+		model.precisionError = true;
+	} else {
+		model.precisionError = false;
+	}
 }
 
 function getPrecision() {
-    const precision = parseInt(model.precision);
-    if (isNaN(precision)) return 0;
-    if (precision < minPrecision) return minPrecision;
-    else if (precision > maxPrecision) return maxPrecision;
-    return precision;
+	const precision = parseInt(model.precision);
+	if (isNaN(precision)) return 0;
+	if (precision < minPrecision) return minPrecision;
+	else if (precision > maxPrecision) return maxPrecision;
+	return precision;
 }
-    
+
 function setCurrencyValue(currency, event) {
-    const newValue =  event.target.value;
-    model.currency = currency;
-    model.amount = newValue;
-    model.currencyError = isNaN(parseFloat(newValue));
+	const newValue =  event.target.value;
+	model.currency = currency;
+	model.amount = newValue;
+	model.currencyError = isNaN(parseFloat(newValue));
 }
 
 function getCurrencyValue(currency) {
-    if (model.currency === currency) { return model.amount; }
-    
-    // convert currency
-    const currencyRate = allRates[currency];
-    const amount = parseFloat(model.amount);
-    const dollarAmount = amount * allRates[model.currency].dollarsPerUnit;
-    const result = dollarAmount * allRates[currency].unitsPerDollar;
-    if (isNaN(result)) {
-        return '???';
-    }
-    return '' + result.toFixed(getPrecision());
+	if (model.currency === currency) { return model.amount; }
+	
+	// convert currency
+	const currencyRate = allRates[currency];
+	const amount = parseFloat(model.amount);
+	const dollarAmount = amount * allRates[model.currency].dollarsPerUnit;
+	const result = dollarAmount * allRates[currency].unitsPerDollar;
+	if (isNaN(result)) {
+		return '???';
+	}
+	return '' + result.toFixed(getPrecision());
 }
 
 function renderMaquette() {
 	return h('div', { id: 'currency-converter', classes: { currencyError: model.currencyError, precisionError: model.precisionError } }, [
-        h('div', [
-            'Precision: ',
-            h('input', { value: '' + model.precision, oninput: setPrecision, type: 'number' })
-        ]),
-        h('hr'),
-        Object.keys(allRates).map(function (key) {
-            const currencyRate = allRates[key];
-            return h('div', [
-                h('span.label', currencyRate.name + ' (' + currencyRate.symbol + ')'),
-                h('input', {
-                    value: getCurrencyValue(currencyRate.symbol),
-                    oninput: rateValueSetters[currencyRate.symbol]
-                })
-            ])          
-        })
+		h('div', [
+			'Precision: ',
+			h('input', { value: '' + model.precision, oninput: setPrecision, type: 'number' })
+		]),
+		h('hr'),
+		Object.keys(allRates).map(function (key) {
+			const currencyRate = allRates[key];
+			return h('div', [
+				h('span.label', currencyRate.name + ' (' + currencyRate.symbol + ')'),
+				h('input', {
+					value: getCurrencyValue(currencyRate.symbol),
+					oninput: rateValueSetters[currencyRate.symbol]
+				})
+			])
+		})
 	]);
 }
 
@@ -98,7 +98,7 @@ projector.append(document.body, renderMaquette);
 
 // Currency,Code,USD/1 Unit,Units/1 USD
 function ratesAsCSV() {
-    return `Andorran Franc,ADF,0.1696,5.8972
+	return `Andorran Franc,ADF,0.1696,5.8972
 Andorran Peseta,ADP,0.006686,149.585
 Utd. Arab Emir. Dirham,AED,0.2723,3.674
 Afghanistan Afghani,AFN,0.01454,68.96
