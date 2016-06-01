@@ -6,7 +6,15 @@ const projector = maquette.createProjector({});
 const minPrecision = 0;
 const maxPrecision = 9;
 
-const allRates = { };
+interface CurrencyRate {
+	name: string;
+	symbol: string;
+	dollarsPerUnit: number;
+	unitsPerDollar: number;
+}
+
+const allRates: { [key: string]: CurrencyRate } = { };
+
 const rateValueSetters = { };
 
 const model = {
@@ -20,7 +28,7 @@ const model = {
 function loadAllRates() {
 	for (let line of ratesAsCSV().split('\n')) {
 		const parts = line.split(',');
-		const currencyRate = {
+		const currencyRate: CurrencyRate = {
 			name: parts[0],
 			symbol: parts[1],
 			dollarsPerUnit: parseFloat(parts[2]),
@@ -58,7 +66,7 @@ function setCurrencyValue(currency, event) {
 
 function getCurrencyValue(currency) {
 	if (model.currency === currency) { return model.amount; }
-	
+
 	// convert currency
 	const currencyRate = allRates[currency];
 	const amount = parseFloat(model.amount);
@@ -116,7 +124,7 @@ Azerbaijan New Manat,AZN,0.6709,1.4906
 Bosnian Mark,BAM,0.5688,1.7584
 Barbados Dollar,BBD,0.5,2
 Bangladeshi Taka,BDT,0.01294,80.5299
-Belgian Franc,BEF,0.02758, 36.2665 
+Belgian Franc,BEF,0.02758, 36.2665
 Bulgarian Lev,BGN,0.5716,1.766
 Bahraini Dinar,BHD,2.6707,0.3798
 Burundi Franc,BIF,0.0006485,1592.45
@@ -133,7 +141,7 @@ Canadian Dollar,CAD,0. 7657,1.3063
 Congolese Franc,CDF,0.001094,944
 Swiss Franc,CHF,1.0065,0.9938
 Chilean Peso,CLP,0.001476,702.54
-Chinese Yuan Renminbi,CNY,0.1519, 6.5845 
+Chinese Yuan Renminbi,CNY,0.1519, 6.5845
 Colombian Peso,COP,0.0003308,3112.5
 Costa Rican Colon,CRC,0.001904,550.254
 Cuban Convertible Peso,CUC,1,1
@@ -147,7 +155,7 @@ Danish Krone,DKK,0.1496,6.6865
 Dominican R. Peso,DOP,0.02204,46.8022
 Algerian Dinar,DZD,0. 009091,110.984
 Ecuador Sucre,ECS,4.15e-05,25587
-Estonian Kroon,EEK,0. 0711, 14.0666 
+Estonian Kroon,EEK,0. 0711, 14.0666
 Egyptian Pound,EGP,0.1129,8.9028
 Spanish Peseta,ESP,0.006686,149.585
 Ethiopian Birr,ETB,0.04641,21.996
@@ -222,7 +230,7 @@ Nigerian Naira,NGN,0.005076,202. 392
 Nicaraguan Cordoba Oro,NIO,0.03549,29.0739
 Dutch Guilder,NLG,0.5048,1.9812
 Norwegian Kroner,NOK,0.1198,8.3527
-Nepalese Rupee,NPR,0.009415, 109.267 
+Nepalese Rupee,NPR,0.009415, 109.267
 New Zealand Dollar,NZD,0.6695,1.4942
 Omani Rial,OMR,2.6057,0.3864
 Panamanian Balboa,PAB,1,1
@@ -277,14 +285,14 @@ Uzbekistan Som,UZS,0.0003438,2979
 Venezuelan Bolivar,VEB,0.0001002,10000
 Venezuelan Bolivar Fuerte,VEF,0.1002,10
 Vietnamese Dong,VND,4.516e-05,22781.1
-Vanuatu Vatu,VUV,0.009112, 111.75 
+Vanuatu Vatu,VUV,0.009112, 111.75
 Samoan Tala,WST,0.4407,2.3602
 CFA Franc BEAC,XAF,0.001696,589.729
 Silver (oz.),XAG,16.027,0.06249
 Gold (oz.),XAU,1206.22,0.0008293
 East Caribbean Dollar,XCD,0.372,2.7169
-ECU,XEU,1.1125, 0.899 
-CFA Franc BCEAO,XOF,0.001696, 589.715 
+ECU,XEU,1.1125, 0.899
+CFA Franc BCEAO,XOF,0.001696, 589.715
 Palladium (oz.),XPD,544.912,0.001845
 CFP Franc,XPF,0 .009326,107.224
 Platinum (oz.),XPT,977.5,0.001034
