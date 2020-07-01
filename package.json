@@ -1,22 +1,18 @@
 {
-  "name": "dojo2-maquette-demos",
+  "name": "mithril-demos",
   "version": "0.0.1",
-  "description": "Demos of using Maquette together with Dojo2",
+  "description": "Demos of using Mithril",
   "homepage": "https://github.com/pdfernhout",
   "bugs": {
-    "url": "https://github.com/pdfernhout/dojo2-maquette-demos/issues"
+    "url": "https://github.com/pdfernhout/mithril-demos/issues"
   },
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pdfernhout/dojo2-maquette-demos.git"
+    "url": "https://github.com/pdfernhout/mithril-demos.git"
   },
   "devDependencies": {
-    "tslint": "3.5.0",
-    "typescript": "1.8.2"
+    "eslint": "7.3.1"
   },
-  "dependencies": {
-    "dojo-core": "^2.0.0-alpha.2",
-    "maquette": "^2.2.1"
-  }
+  "dependencies": {}
 }

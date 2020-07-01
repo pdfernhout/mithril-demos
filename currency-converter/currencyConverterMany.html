@@ -7,7 +7,7 @@
 			span.label {
 				display: inline-block;
 				text-align: right;
-				min-width: 15em;
+				min-width: 18em;
 				margin-right: 0.5em;
 			}
 			
@@ -24,18 +24,7 @@
 				border-color: red;   
 			}
 		</style>
-		<script src="../vendor/dojo-loader/loader.js"></script>
-		<script>
-			require.config({
-				baseUrl: '.',
-				paths: {
-					maquette: '../vendor/maquette/maquette',
-					'dojo-core': '../vendor/dojo-core'
-				}
-			});
-			require(["currencyConverterMany"], function (currencyConverterMany) {
-			});
-		</script>
+		<script type="module" src="currencyConverterMany.js"></script>
 	</head>
 	<body>
 	</body>
