@@ -4,18 +4,7 @@
     <meta charset="utf-8">
     <title>Hello using Components</title>
     <link rel="stylesheet" type="text/css" href="../styles/hello-styles.css">
-	<script src="../../vendor/dojo-loader/loader.js"></script>
-	<script>
-		require.config({
-		    baseUrl: '.',
-		    paths: {
-		        maquette: '../../vendor/maquette/maquette',
-				'dojo-core': '../../vendor/dojo-core'
-		    }
-		});
-		require(["helloComponents"], function (helloComponents) {
-		});
-	</script>
+	<script type="module" src="helloComponents.js"></script>
   </head>
   <body>
   </body>

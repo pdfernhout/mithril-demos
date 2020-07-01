@@ -25,3 +25,8 @@ textarea {
 	box-sizing: border-box;
 	width: 100%;
 }
+
+img {
+    width: 7rem;
+    max-width: 7rem;
+}

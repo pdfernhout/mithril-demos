@@ -1,7 +1,7 @@
 # mithril-demos
 Demos using Mithril in TypeScript
 
-* hello-increasing-abstraction is a series of examples demonstrating moving from displaying plain HTML for content to eventually using specification-driven components editing content initially requested over the network
+* hello-increasing-abstraction is a series of examples demonstrating moving from displaying plain HTML for content towards finally using specification-driven components for editing content initially requested over the network
 * three-cube demonstrates the integration of three.js with Mithril
 
 Vendor:
