@@ -1,6 +1,6 @@
 # hello-increasing-abstraction
 
-This folder consists of 14 examples using [Mithril](https://mithril.js.org/) that all display the same HTML content (about moving from novice to expert) but with increasing levels of abstraction. The point is not to suggest the more abstract approaches are "better" but to say more abstract approaches are possible when needed with a tool like Mithril/HyperScript. 
+This folder consists of 14 examples using [Mithril](https://mithril.js.org/) that all display the same HTML content (about moving from novice to expert) but with increasing levels of abstraction. The point is not to suggest the more abstract approaches are "better" but to say more abstract approaches are possible when needed with a tool like Mithril/HyperScript. To see these demos in action you will need to run them under a web server of some sort -- perhaps even  [Twirlip15](https://github.com/pdfernhout/Twirlip15)?
 
 Related humor: https://danstroot.com/2018/10/03/hammer-factories/  
 > "“A hammer?” he asks. “Nobody really buys hammers anymore. They’re kind of old fashioned.” Surprised at this development, I ask him why. ..."
