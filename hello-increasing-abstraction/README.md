@@ -91,7 +91,7 @@ But in practice, it is mostly a non-issue for me now -- even as while working on
 
 Also in Mithril's defense, this is another example of why HyperScript is better than JSX. Because HyperScript it all "just JavaScript" the debugger could be immediately useful in figuring out what went wrong (although source maps do help these days more with the JSX issue). While I don't want to make a virtue out of imprecise-relative-to-code-location error messages, this is an example of where a novice could become a better JavaScript developer in all ways (not just an expert at one API) if they learn how to debug such an error message quickly. So it is maybe a situation where training can substitute for implementation complexity (and the related library maintenance burden).
 
-As I've essentially said elsewhere, using something like Dojo, React, or Angular makes you a better Dojo, React, or Angular programmer. Using Mithril makes you a better JavaScript programmer (and probably a better programmer in general). So part of the choice of Mithril is choosing what programming journey you want to go on -- in terms of what you want to get better at.
+As I've essentially said elsewhere, using something like Dojo, React, or Angular makes you a better Dojo, React, or Angular programmer. Using Mithril makes you a better JavaScript programmer (and probably a better programmer in general). That may be a little unfair to React in that, some issues aside, it is the least opinionated compared to Dojo and Angular -- even as it is still way more opinionated than Mithril. In any case, part of the choice of Mithril is choosing what programming journey you want to go on -- in terms of what you want to get better at.
 
 ### Historical Footnote
 
