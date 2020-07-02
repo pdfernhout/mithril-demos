@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Maquette with three.js component demo</title>
+		<title>Mithril with three.js component demo</title>
 		<style>
 			.threeD {
 				border-style: solid;
@@ -13,18 +13,6 @@
 		</style>
 	</head>
 	<body>
-		<script src="../vendor/dojo-loader/loader.js"></script>
-		<script>
-		require.config({
-		    baseUrl: '.',
-		    paths: {
-		        maquette: '../vendor/maquette/maquette',
-				'dojo-core': '../vendor/dojo-core',
-				three: '../vendor/three/three'
-		    }
-		});
-		require(["threeCube"], function (threeCube) {
-		});
-		</script>
+		<script type="module" src="threeCube.js"></script>
 	</body>
 </html>
